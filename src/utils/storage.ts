@@ -59,7 +59,7 @@ export default new Storage(localStorage);
 export const session = new Storage(sessionStorage);
 
 // storage的key列表，统一管理
-export const storageKeys: { [nameSpace: string]: string } = {
+export const storageKeys = {
   // 系统的
   sysToken: 'SYSTEM_TOKEN',
   sysTokenType: 'SYSTEM_TOKEN_TYPE',

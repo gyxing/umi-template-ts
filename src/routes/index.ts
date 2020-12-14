@@ -7,6 +7,10 @@ const routes: any = [
         path: '/',
         component: '@/pages/index',
       },
+      {
+        path: '/example',
+        component: '@/pages/example',
+      },
     ],
   },
 ];

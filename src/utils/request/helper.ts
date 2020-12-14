@@ -3,7 +3,6 @@ import config from '@/constants/config';
 import { message } from 'antd';
 import storage, { storageKeys } from '@/utils/storage';
 import { history } from 'umi';
-import ex from 'umi/dist';
 
 export const DATA_MODE_SIMPLE = 'simple';
 // 第一次进来页面
@@ -88,7 +87,3 @@ export function errorHandler({ data, response, type }: any) {
   }
   return data;
 }
-
-// export const getFetchOptions() {
-//
-// }

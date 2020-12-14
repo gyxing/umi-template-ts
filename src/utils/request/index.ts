@@ -21,15 +21,15 @@ export default {
     return request(url, { data, params, method: 'POST', type: 'form' });
   },
   // 一般的request请求
-  extend(url: string, options: any) {
+  extend(url: string, options?: any) {
     return request(url, options);
   },
   // 下载文件
-  download(url: string, options: any) {
+  download(url: string, options?: any) {
     return download(url, options);
   },
   // 上传文件
-  upload(url: string, options: any) {
+  upload(url: string, options?: any) {
     return upload(url, options);
   },
 };

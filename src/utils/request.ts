@@ -19,7 +19,7 @@ request.base.getAuthorization = () => {
 
   return `${tokenType} ${accessToken}`;
 };
-request.base.interceptError = data => {
+request.base.interceptError = (data: any) => {
   if (data.code === 401) {
     if (!firstEnter) {
       notification.warning({ message: '登录已过期，请重新登录' });

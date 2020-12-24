@@ -8,7 +8,11 @@ export default () => {
   // 下载
   const onDownload = () => {
     request
-      .download('/files/download')
+      .download('/files/download', {
+        progress: (value: number, data: any) => {
+          console.log(value, data);
+        },
+      })
       .then(console.log)
       .catch(console.error);
   };
@@ -19,7 +23,7 @@ export default () => {
     form.append('file', file);
     request
       .upload('/files/upload', {
-        onProgress,
+        progress: onProgress,
         params: { id: 1 },
         data: form,
       })

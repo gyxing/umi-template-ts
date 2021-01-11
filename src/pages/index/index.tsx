@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'umi';
 import styles from './index.less';
+import { storageKeys } from '@/utils/storage';
 
 export default () => {
   return (

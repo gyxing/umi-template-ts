@@ -8,8 +8,9 @@ import { history } from 'umi';
 let firstEnter = true;
 
 request.base.prefix = config.hostApi;
-request.base.skipErrorMessage = config.request.skipErrorMessage;
-request.base.dataMode = config.request.dataMode;
+// 请求数据返回格式，default是{code, data, msg}； simple是直接返回data，异常情况在catch中捕获
+request.base.dataMode = 'default';
+// 获取登录凭证
 request.base.getAuthorization = () => {
   // 登录信息
   const tokenType =
@@ -19,6 +20,7 @@ request.base.getAuthorization = () => {
 
   return `${tokenType} ${accessToken}`;
 };
+// 错误异常处理
 request.base.interceptError = (data: any) => {
   if (data.code === 401) {
     if (!firstEnter) {
@@ -34,6 +36,7 @@ request.base.interceptError = (data: any) => {
     history.replace('/login');
     return false;
   }
+  !!data.msg && notification.error({ message: data.msg });
   return true;
 };
 

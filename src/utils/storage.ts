@@ -29,12 +29,12 @@ class Storage {
   }
 
   setItems(params: ParamProps) {
-    Object.keys(params).forEach(key => this.set(key, params[key]));
+    Object.keys(params).forEach((key) => this.set(key, params[key]));
   }
 
   remove(key: string | Array<string>) {
     if (Array.isArray(key)) {
-      key.forEach(k => this.storage.removeItem(k));
+      key.forEach((k) => this.storage.removeItem(k));
     } else {
       this.storage.removeItem(key);
     }
@@ -69,4 +69,4 @@ export const storageKeys = {
   loginErrorCount: 'LOGIN_ERROR_COUNT', // 登录错误次数
   cacheTimeMap: 'CACHE_TIME_MAP', // 用作缓存的
 };
-// Object.freeze(storageKeys);
+Object.freeze(storageKeys);
